@@ -10,4 +10,4 @@ To Run this procject
 
 Or to run with docker
 
-Open Docker Desktop and run the command " docker run -p 3000:3000" and open localhost:3000 in your browser
+Open Docker Desktop and run the command " docker run -p 5173:5173" and open localhost:3000 in your browser
