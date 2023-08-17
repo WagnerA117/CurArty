@@ -5,6 +5,8 @@ import {Button} from "..";
 import "./navbar.scss";
 
 export const NavBar = () => {
+	//use hook to get path and then have conditional rendering
+
 	return (
 		<div className="header">
 			<div className="logo">
