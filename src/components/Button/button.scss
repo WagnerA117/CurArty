@@ -1,0 +1,60 @@
+.button {
+	color: rgba(50, 115, 220, 1);
+	width: 100%;
+	font-family: "Inter", sans-serif;
+	font-weight: 700;
+	border: 0;
+
+	cursor: pointer;
+	line-height: 1;
+	padding: 12px 24px 12px 24px;
+
+	&.sucess {
+		color: white;
+		background-color: rgba(58, 187, 129, 1);
+	}
+	&.sucess:hover {
+		background-color: rgba(62, 196, 135, 1);
+	}
+	&.danger {
+		color: white;
+		background-color: rgba(255, 56, 96, 1);
+	}
+	&.danger:hover {
+		background-color: rgba(240, 58, 95, 1);
+	}
+	&card-button {
+		border-radius: 0%;
+		width: 100%;
+		color: rgba(50, 115, 220, 1);
+		background-color: black;
+	}
+}
+.button--primary {
+	border-radius: 3em;
+	background-color: rgba(112, 37, 155, 1);
+	color: white;
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 0em;
+	line-height: 24px;
+	text-align: left;
+}
+
+.button--secondary {
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.button--small {
+	font-size: 12px;
+	padding: 6px 12px;
+}
+.button--medium {
+	font-size: 14px;
+	padding: 10px 20px;
+}
+.button--large {
+	font-size: 16px;
+	padding: 12px 24px;
+}
