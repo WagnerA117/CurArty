@@ -50,11 +50,10 @@ export const ImageCard = ({
 	return (
 		<div className="card-container">
 			<img src={imgUrl} />
-			<div className="card-content">
-				<p>{description}</p>
-			</div>
 
-			<div>{buttonMemo.map((button) => button)}</div>
+			<div className="button-container">
+				{buttonMemo.map((button) => button)}
+			</div>
 		</div>
 	);
 };

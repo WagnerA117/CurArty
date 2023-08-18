@@ -20,9 +20,13 @@ export const Home = () => {
 
 	if (isLoading || isFetching || !randomArtwork) {
 		return (
-			<div>
+			<ImageCard>
 				<LoadingSpinner></LoadingSpinner>
-			</div>
+
+				<Button label="Learn More"></Button>
+
+				<Button label="Save" variant="sucess"></Button>
+			</ImageCard>
 		);
 	}
 
@@ -35,14 +39,14 @@ export const Home = () => {
 			<div>
 				<ImageCard imgUrl={imageUrl}>
 					<Button
-						label="next!"
+						label="Next "
 						variant="danger"
 						onClick={handleRefetch}
 					></Button>
 					<a href={learnMoreUrl} target="_blank">
-						<Button label="testButton2"></Button>
+						<Button label="Learn More"></Button>
 					</a>
-					<Button label="testButton2" variant="sucess"></Button>
+					<Button label="Save" variant="sucess"></Button>
 				</ImageCard>
 			</div>
 		</>
