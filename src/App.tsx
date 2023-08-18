@@ -9,11 +9,19 @@ function App() {
 	return (
 		<>
 			<Router>
-				<NavBar />
-				<Routes>
-					<Route path="/" Component={Home} />
-					<Route path="/gallery" Component={Gallery} />
-				</Routes>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "center",
+					}}
+				>
+					<NavBar />
+					<Routes>
+						<Route path="/" Component={Home} />
+						<Route path="/gallery" Component={Gallery} />
+					</Routes>
+				</div>
 			</Router>
 		</>
 	);

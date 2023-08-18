@@ -2,7 +2,7 @@ import "./home.scss";
 import {ImageCard, Button, LoadingSpinner} from "../../components";
 
 import {useRandomArtWork} from "../../api";
-import {useGalleryStore} from "../../services/gallery";
+import {useGalleryStore} from "../../services/galleryStore";
 
 export const Home = () => {
 	const {
@@ -14,19 +14,33 @@ export const Home = () => {
 
 	const {add} = useGalleryStore();
 
+	const handleAdd = () => {
+		add(randomArtwork);
+		refetch();
+	};
+
 	const handleRefetch = () => {
 		refetch();
 	};
 
 	if (isLoading || isFetching || !randomArtwork) {
 		return (
-			<ImageCard>
-				<LoadingSpinner></LoadingSpinner>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
+				<ImageCard>
+					<LoadingSpinner></LoadingSpinner>
 
-				<Button label="Learn More"></Button>
+					<Button label="Learn More"></Button>
 
-				<Button label="Save" variant="sucess"></Button>
-			</ImageCard>
+					<Button label="Save" variant="sucess"></Button>
+				</ImageCard>
+			</div>
 		);
 	}
 
@@ -36,7 +50,14 @@ export const Home = () => {
 
 	return (
 		<>
-			<div>
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					justifyContent: "center",
+					alignItems: "center",
+				}}
+			>
 				<ImageCard imgUrl={imageUrl}>
 					<Button
 						label="Next "
@@ -46,7 +67,7 @@ export const Home = () => {
 					<a href={learnMoreUrl} target="_blank">
 						<Button label="Learn More"></Button>
 					</a>
-					<Button label="Save" variant="sucess"></Button>
+					<Button label="Save" variant="sucess" onClick={handleAdd}></Button>
 				</ImageCard>
 			</div>
 		</>
