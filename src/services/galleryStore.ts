@@ -3,6 +3,7 @@ import {create} from "zustand";
 export type RandomArtwork = {
 	id: number;
 	image_id: string;
+	description?: string;
 };
 
 interface GalleryState {

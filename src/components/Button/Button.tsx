@@ -1,3 +1,4 @@
+import {LoadingSpinner} from "..";
 import "./button.scss";
 
 interface ButtonProps {
@@ -16,16 +17,18 @@ interface ButtonProps {
 	size?: "small" | "medium" | "large";
 
 	label: string;
+	loading?: boolean;
 
 	onClick?: () => void;
 }
 
 export const Button = ({
-	variant,
-	primary = false,
-	size = "medium",
 	backgroundColor,
 	label,
+	loading,
+	primary = false,
+	size = "medium",
+	variant,
 	...props
 }: ButtonProps) => {
 	const mode = primary ? "button--primary" : "button--secondary";
@@ -37,7 +40,7 @@ export const Button = ({
 			style={{backgroundColor}}
 			{...props}
 		>
-			{label}
+			{loading ? <LoadingSpinner></LoadingSpinner> : label}
 		</button>
 	);
 };

@@ -1,5 +1,6 @@
 import {useMemo} from "react";
 import "./imagecard.scss";
+import {LoadingSpinner} from "..";
 
 //create types folder
 
@@ -16,14 +17,10 @@ interface ImageCardProps {
 	loading?: boolean;
 }
 
-const defaultUrl =
-	"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/540px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg";
+//const defaultUrl =
+//	"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/540px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg";
 
-export const ImageCard = ({
-	description,
-	imgUrl = defaultUrl,
-	children,
-}: ImageCardProps) => {
+export const ImageCard = ({imgUrl, loading, children}: ImageCardProps) => {
 	const buttonMemo = useMemo(() => {
 		let buttons: React.ReactElement[] = [];
 
@@ -49,7 +46,9 @@ export const ImageCard = ({
 
 	return (
 		<div className="card-container">
-			<img src={imgUrl} />
+			<div className="image-container">
+				{loading ? <LoadingSpinner></LoadingSpinner> : <img src={imgUrl} />}
+			</div>
 
 			<div className="button-container">
 				{buttonMemo.map((button) => button)}

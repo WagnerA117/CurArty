@@ -1,5 +1,5 @@
 import "./home.scss";
-import {ImageCard, Button, LoadingSpinner} from "../../components";
+import {ImageCard, Button} from "../../components";
 
 import {useRandomArtWork} from "../../api";
 import {useGalleryStore} from "../../services/galleryStore";
@@ -15,7 +15,9 @@ export const Home = () => {
 	const {add} = useGalleryStore();
 
 	const handleAdd = () => {
-		add(randomArtwork);
+		const artwork = {...randomArtwork, description: ""};
+
+		add(artwork);
 		refetch();
 	};
 
@@ -33,8 +35,8 @@ export const Home = () => {
 					alignItems: "center",
 				}}
 			>
-				<ImageCard>
-					<LoadingSpinner></LoadingSpinner>
+				<ImageCard loading={isLoading}>
+					<Button label="Next " variant="danger" />
 
 					<Button label="Learn More"></Button>
 
@@ -62,12 +64,15 @@ export const Home = () => {
 					<Button
 						label="Next "
 						variant="danger"
+						loading={isLoading}
 						onClick={handleRefetch}
-					></Button>
+					/>
+
 					<a href={learnMoreUrl} target="_blank">
-						<Button label="Learn More"></Button>
+						<Button label="Learn More" />
 					</a>
-					<Button label="Save" variant="sucess" onClick={handleAdd}></Button>
+
+					<Button label="Save" variant="sucess" onClick={handleAdd} />
 				</ImageCard>
 			</div>
 		</>
