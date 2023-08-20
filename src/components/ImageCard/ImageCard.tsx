@@ -9,18 +9,24 @@ export type RandomArtworkType = {
 };
 
 interface ImageCardProps {
-	description?: string;
-	imgUrl?: string;
-	remove?: () => void;
 	buttonLabels?: string[];
 	children?: React.ReactNode;
+	description?: string;
+	imgUrl?: string;
 	loading?: boolean;
+	isRefetching?: boolean;
+	remove?: () => void;
 }
 
 //const defaultUrl =
 //	"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/540px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg";
 
-export const ImageCard = ({imgUrl, loading, children}: ImageCardProps) => {
+export const ImageCard = ({
+	imgUrl,
+	loading,
+	isRefetching,
+	children,
+}: ImageCardProps) => {
 	const buttonMemo = useMemo(() => {
 		let buttons: React.ReactElement[] = [];
 
@@ -47,7 +53,11 @@ export const ImageCard = ({imgUrl, loading, children}: ImageCardProps) => {
 	return (
 		<div className="card-container">
 			<div className="image-container">
-				{loading ? <LoadingSpinner></LoadingSpinner> : <img src={imgUrl} />}
+				{isRefetching ? (
+					<LoadingSpinner></LoadingSpinner>
+				) : (
+					<img src={imgUrl} />
+				)}
 			</div>
 
 			<div className="button-container">

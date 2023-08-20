@@ -8,7 +8,7 @@ export const Home = () => {
 	const {
 		data: randomArtwork,
 		refetch,
-		isFetching,
+		isRefetching,
 		isLoading,
 	} = useRandomArtWork();
 
@@ -24,8 +24,9 @@ export const Home = () => {
 	const handleRefetch = () => {
 		refetch();
 	};
+	console.log(isRefetching);
 
-	if (isLoading || isFetching || !randomArtwork) {
+	if (isLoading || isRefetching || !randomArtwork) {
 		return (
 			<div
 				style={{
@@ -35,7 +36,7 @@ export const Home = () => {
 					alignItems: "center",
 				}}
 			>
-				<ImageCard loading={isLoading}>
+				<ImageCard loading={isLoading} isRefetching={isRefetching}>
 					<Button label="Next " variant="danger" />
 
 					<Button label="Learn More"></Button>
