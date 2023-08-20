@@ -13,10 +13,12 @@ interface GalleryState {
 interface GalleryActions {
 	add: (newImage: RandomArtwork) => void;
 	remove: (imageId: number) => void;
+	updateDescription: (imageId: number, description: string) => void;
 }
 
 export const useGalleryStore = create<GalleryState & GalleryActions>((set) => {
 	const storage = localStorage.getItem("galleryStore");
+
 	let gallery: Partial<GalleryState> | undefined;
 	if (storage !== null) {
 		gallery = JSON.parse(storage) as Partial<GalleryState>;
@@ -36,6 +38,22 @@ export const useGalleryStore = create<GalleryState & GalleryActions>((set) => {
 			set(({images}) => {
 				return {
 					images: images.filter((image) => image.id !== imageId),
+				};
+			});
+		},
+		updateDescription: (imageId: number, description: string) => {
+			console.log(imageId, description, "this is the update ");
+			set(({images}) => {
+				return {
+					images: images.map((item) => {
+						if (item.id === imageId) {
+							return {
+								...item,
+								description: description,
+							};
+						}
+						return item;
+					}),
 				};
 			});
 		},

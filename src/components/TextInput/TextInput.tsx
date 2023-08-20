@@ -1,20 +1,11 @@
 import "./textinput.scss";
 interface TextInputProps {
-	value: string;
-	onChange: (value: string) => void;
+	value?: string;
+	onChange?: React.ChangeEvent<HTMLTextAreaElement>;
 }
 
-export const TextInput: React.FC<TextInputProps> = ({value, onChange}) => {
-	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		onChange(e.target.value);
-	};
-
+export const TextInput: React.FC<TextInputProps> = ({onChange}) => {
 	return (
-		<textarea
-			type="text"
-			className={"input"}
-			value={value}
-			onChange={handleInputChange}
-		/>
+		<textarea style={{width: "100%", height: "100%"}} onChange={onChange} />
 	);
 };

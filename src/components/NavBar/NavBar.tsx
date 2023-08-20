@@ -5,8 +5,6 @@ import {Button} from "..";
 import "./navbar.scss";
 
 export const NavBar = () => {
-	//use hook to get path and then have conditional rendering
-
 	return (
 		<div className="header">
 			<div className="logo">
@@ -66,7 +64,7 @@ export const NavBar = () => {
 			</div>
 
 			<div className="unplug-button">
-				<Button label="Unplug from the Matrix" />
+				<Button label="Logout" />
 			</div>
 		</div>
 	);
