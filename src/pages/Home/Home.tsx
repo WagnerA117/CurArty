@@ -24,7 +24,6 @@ export const Home = () => {
 	const handleRefetch = () => {
 		refetch();
 	};
-	console.log(isRefetching);
 
 	if (isLoading || isRefetching || !randomArtwork) {
 		return (

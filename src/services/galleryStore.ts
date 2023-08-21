@@ -42,7 +42,6 @@ export const useGalleryStore = create<GalleryState & GalleryActions>((set) => {
 			});
 		},
 		updateDescription: (imageId: number, description: string) => {
-			console.log(imageId, description, "this is the update ");
 			set(({images}) => {
 				return {
 					images: images.map((item) => {

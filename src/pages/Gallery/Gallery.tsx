@@ -20,9 +20,6 @@ export const Gallery = () => {
 		setText(e.target.value);
 	};
 
-	console.log(images);
-	console.log(id);
-
 	const handleToggle = () => {
 		setToggleModal(!toggleModal);
 	};
