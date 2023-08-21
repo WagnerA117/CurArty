@@ -21,12 +21,7 @@ interface ImageCardProps {
 //const defaultUrl =
 //	"https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg/540px-Vincent_van_Gogh_-_Almond_blossom_-_Google_Art_Project.jpg";
 
-export const ImageCard = ({
-	imgUrl,
-	loading,
-	isRefetching,
-	children,
-}: ImageCardProps) => {
+export const ImageCard = ({imgUrl, isRefetching, children}: ImageCardProps) => {
 	const buttonMemo = useMemo(() => {
 		let buttons: React.ReactElement[] = [];
 
